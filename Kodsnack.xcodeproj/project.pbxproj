@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0F0F5C1A1B59AC00948D4D /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F0F5B1A1B59AC00948D4D /* SelectViewController.swift */; };
+		0F3468351A1A30B100D8C662 /* vt323.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F3468321A1A30B100D8C662 /* vt323.ttf */; };
+		0F3468361A1A30B100D8C662 /* kodsnack-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3468331A1A30B100D8C662 /* kodsnack-60.png */; };
+		0F3468371A1A30B100D8C662 /* kodsnack_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F3468341A1A30B100D8C662 /* kodsnack_1024.jpg */; };
 		0F8038AB1A16012000BD386F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038AA1A16012000BD386F /* AppDelegate.swift */; };
 		0F8038AD1A16012000BD386F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038AC1A16012000BD386F /* ViewController.swift */; };
 		0F8038B01A16012000BD386F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038AE1A16012000BD386F /* Main.storyboard */; };
 		0F8038B21A16012000BD386F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038B11A16012000BD386F /* Images.xcassets */; };
 		0F8038B51A16012000BD386F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038B31A16012000BD386F /* LaunchScreen.xib */; };
 		0F8038C11A16012000BD386F /* KodsnackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038C01A16012000BD386F /* KodsnackTests.swift */; };
+		0F8038CB1A16298F00BD386F /* TODO and README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038CA1A16298F00BD386F /* TODO and README.txt */; };
+		0F8038CD1A162F6A00BD386F /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038CC1A162F6A00BD386F /* JSONData.swift */; };
+		0F8038CF1A16374A00BD386F /* File in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038CE1A16374A00BD386F /* File */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0F0F5B1A1B59AC00948D4D /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		0F3468321A1A30B100D8C662 /* vt323.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = vt323.ttf; sourceTree = "<group>"; };
+		0F3468331A1A30B100D8C662 /* kodsnack-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kodsnack-60.png"; sourceTree = "<group>"; };
+		0F3468341A1A30B100D8C662 /* kodsnack_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kodsnack_1024.jpg; sourceTree = "<group>"; };
 		0F8038A51A16012000BD386F /* Kodsnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kodsnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8038A91A16012000BD386F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F8038AA1A16012000BD386F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +47,9 @@
 		0F8038BA1A16012000BD386F /* KodsnackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KodsnackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8038BF1A16012000BD386F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F8038C01A16012000BD386F /* KodsnackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodsnackTests.swift; sourceTree = "<group>"; };
+		0F8038CA1A16298F00BD386F /* TODO and README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "TODO and README.txt"; sourceTree = "<group>"; };
+		0F8038CC1A162F6A00BD386F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
+		0F8038CE1A16374A00BD386F /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +70,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F3468301A1A30B100D8C662 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F3468311A1A30B100D8C662 /* Fonts */,
+				0F3468331A1A30B100D8C662 /* kodsnack-60.png */,
+				0F3468341A1A30B100D8C662 /* kodsnack_1024.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0F3468311A1A30B100D8C662 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0F3468321A1A30B100D8C662 /* vt323.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0F80389C1A16012000BD386F = {
 			isa = PBXGroup;
 			children = (
+				0F8038CE1A16374A00BD386F /* File */,
 				0F8038A71A16012000BD386F /* Kodsnack */,
 				0F8038BD1A16012000BD386F /* KodsnackTests */,
 				0F8038A61A16012000BD386F /* Products */,
@@ -79,10 +112,14 @@
 			children = (
 				0F8038AA1A16012000BD386F /* AppDelegate.swift */,
 				0F8038AC1A16012000BD386F /* ViewController.swift */,
+				0F8038CC1A162F6A00BD386F /* JSONData.swift */,
 				0F8038AE1A16012000BD386F /* Main.storyboard */,
+				0F0F0F5B1A1B59AC00948D4D /* SelectViewController.swift */,
 				0F8038B11A16012000BD386F /* Images.xcassets */,
 				0F8038B31A16012000BD386F /* LaunchScreen.xib */,
+				0F3468301A1A30B100D8C662 /* Resources */,
 				0F8038A81A16012000BD386F /* Supporting Files */,
+				0F8038CA1A16298F00BD386F /* TODO and README.txt */,
 			);
 			path = Kodsnack;
 			sourceTree = "<group>";
@@ -122,6 +159,7 @@
 				0F8038A11A16012000BD386F /* Sources */,
 				0F8038A21A16012000BD386F /* Frameworks */,
 				0F8038A31A16012000BD386F /* Resources */,
+				0F3468381A1A436D00D8C662 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -161,6 +199,12 @@
 				TargetAttributes = {
 					0F8038A41A16012000BD386F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4XY7T393E3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					0F8038B91A16012000BD386F = {
 						CreatedOnToolsVersion = 6.1;
@@ -192,9 +236,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8038CB1A16298F00BD386F /* TODO and README.txt in Resources */,
 				0F8038B01A16012000BD386F /* Main.storyboard in Resources */,
 				0F8038B51A16012000BD386F /* LaunchScreen.xib in Resources */,
+				0F3468351A1A30B100D8C662 /* vt323.ttf in Resources */,
+				0F3468371A1A30B100D8C662 /* kodsnack_1024.jpg in Resources */,
+				0F3468361A1A30B100D8C662 /* kodsnack-60.png in Resources */,
 				0F8038B21A16012000BD386F /* Images.xcassets in Resources */,
+				0F8038CF1A16374A00BD386F /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,13 +256,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F3468381A1A436D00D8C662 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0F8038A11A16012000BD386F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0F0F5C1A1B59AC00948D4D /* SelectViewController.swift in Sources */,
 				0F8038AD1A16012000BD386F /* ViewController.swift in Sources */,
 				0F8038AB1A16012000BD386F /* AppDelegate.swift in Sources */,
+				0F8038CD1A162F6A00BD386F /* JSONData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,7 +405,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Kodsnack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -348,7 +417,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Kodsnack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -407,6 +478,7 @@
 				0F8038C61A16012000BD386F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F8038C71A16012000BD386F /* Build configuration list for PBXNativeTarget "KodsnackTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +487,7 @@
 				0F8038C91A16012000BD386F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

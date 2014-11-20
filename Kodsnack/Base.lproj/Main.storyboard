@@ -68,11 +68,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dfZ-X5-QVh"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Until then, listen to some nice music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd4-7e-jce">
-                                <rect key="frame" x="129" y="459" width="343" height="97"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.86268144845962524" green="0.86278229951858521" blue="0.86263507604598999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -80,11 +75,9 @@
                             <constraint firstItem="rur-1E-S7Z" firstAttribute="top" secondItem="Jcv-vW-SWQ" secondAttribute="bottom" constant="30" id="1kP-kF-hYC"/>
                             <constraint firstItem="gHx-dN-a76" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="34J-gx-Mwj"/>
                             <constraint firstAttribute="centerX" secondItem="plB-Qs-zj6" secondAttribute="centerX" constant="-0.5" id="35U-Yd-dPg"/>
-                            <constraint firstItem="sd4-7e-jce" firstAttribute="top" secondItem="plB-Qs-zj6" secondAttribute="bottom" constant="10" id="8T5-RQ-ixc"/>
                             <constraint firstAttribute="centerX" secondItem="gHx-dN-a76" secondAttribute="centerX" id="Czf-WR-aGO"/>
                             <constraint firstItem="gHx-dN-a76" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HJT-9Q-9R6"/>
                             <constraint firstItem="gHx-dN-a76" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Qnx-aj-VXt"/>
-                            <constraint firstAttribute="centerX" secondItem="sd4-7e-jce" secondAttribute="centerX" constant="-0.5" id="W8k-E5-YCc"/>
                             <constraint firstAttribute="centerX" secondItem="Jcv-vW-SWQ" secondAttribute="centerX" id="gKE-ge-t2i"/>
                             <constraint firstItem="plB-Qs-zj6" firstAttribute="top" secondItem="rur-1E-S7Z" secondAttribute="bottom" constant="20" id="mXq-yW-XjE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gHx-dN-a76" secondAttribute="bottom" id="nCY-Jb-qKv"/>

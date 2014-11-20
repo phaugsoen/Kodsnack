@@ -36,7 +36,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   var playerItem : AVPlayerItem!
   var jsonData : JSONData!
   var selectedStreamID = "Kodsnack"
-  var fakeListening = false
+ 
   
  // var urlToCast = NSURL(string: Apple_test_stream )
   
@@ -54,14 +54,12 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     
     
     // Set the view bg to same as KodSnack pic bg grey #DCDCDC
-    let kodSnackColor = UIColor(red:220,green: 220,blue: 220,alpha: 1)
- //   view.backgroundColor = kodSnackColor
+    let kodSnackColor = UIColor(red:0.86,green: 0.86,blue: 0.86,alpha: 1)
+    view.backgroundColor = kodSnackColor
 
   tryToConnect()
     
-    // try to check the status of pause button and change it state
-   // pauseButton. = UIBarButtonSystemItem.Pause
-  }
+     }
   
   func tryToConnect() {
     
@@ -107,7 +105,6 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     
     var timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector:"tryToConnect", userInfo: nil, repeats: false)
  
-    fakeListen()
     
   }
   
@@ -132,19 +129,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   }
 
   
-  func fakeListen() {
-    
-    if !fakeListening {
-      fakeListening = true
-      println("fake listening")
-      var error:NSError?
-      var urlToCast = NSURL(string: "http://sverigesradio.se/topsy/direkt/164-hi-mp3.m3u")
-      AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-      AVAudioSession.sharedInstance().setActive(true, error: nil)
-      playerItem = AVPlayerItem(URL: urlToCast)
-      player = AVPlayer(playerItem: playerItem)
-    }
-  }
+ 
   
   
   func startListenP4() {

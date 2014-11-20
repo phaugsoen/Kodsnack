@@ -33,7 +33,7 @@ class SelectViewController: UIViewController {
     
     
     if let posName = sender.titleLabel?.text {
-      println("Button \(posName) pressed")
+      println("Button \(posName) pressed right now")
       delegate?.changedStream(posName)
       self.dismissViewControllerAnimated(true, completion: nil)
     }

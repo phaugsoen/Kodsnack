@@ -3,6 +3,11 @@
 
 Ideer och TODO
 **************
+* Måste tänka om och rätt enl Apple när det gäller background och pausmusik
+* Kanske passar bättre med lite modernare och mer iOS typisk t utseende
+* Lämplig hissmusik? En lista kanske behövs som fall back
+* Går det att trigga via Twitter, we are now live?
+* Skriv en README för GitHUB
 
 * Med timer och ingen musik görs resign active när jag går till background och timer utlöses inte.
 Kanske löses med att spela någon annan musik så länge?
@@ -16,7 +21,7 @@ Kanske löses med att spela någon annan musik så länge?
 det skall vara ok.
 
 
-* Lägg upp på Github
+
 * OM JSON query och parse funkar, hämta mer info, rate, channels etc.
 * Gör en snygg parse av JSON till Swift
 
@@ -29,6 +34,7 @@ det skall vara ok.
 
 Done
 ####
+* Lägg upp på Github
 * Inför att den ligger och väntar på att kunna ansluta (poll?)
 
 * Gör en separat startListen som faller tillbaka på P4 vid klick på bilden, t.ex

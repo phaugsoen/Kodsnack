@@ -36,6 +36,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   var playerItem : AVPlayerItem!
   var jsonData : JSONData!
   var selectedStreamID = "Kodsnack"
+  var fakeListening = false
   
  // var urlToCast = NSURL(string: Apple_test_stream )
   
@@ -104,8 +105,10 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
       println("ERROR:\(posErrStr)")
     }
     
-    var timer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector:"tryToConnect", userInfo: nil, repeats: false)
+    var timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector:"tryToConnect", userInfo: nil, repeats: false)
  
+    fakeListen()
+    
   }
   
   func startListen() {
@@ -128,6 +131,20 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     player.addObserver(self, forKeyPath: "status", options: options, context: nil)
   }
 
+  
+  func fakeListen() {
+    
+    if !fakeListening {
+      fakeListening = true
+      println("fake listening")
+      var error:NSError?
+      var urlToCast = NSURL(string: "http://sverigesradio.se/topsy/direkt/164-hi-mp3.m3u")
+      AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+      AVAudioSession.sharedInstance().setActive(true, error: nil)
+      playerItem = AVPlayerItem(URL: urlToCast)
+      player = AVPlayer(playerItem: playerItem)
+    }
+  }
   
   
   func startListenP4() {

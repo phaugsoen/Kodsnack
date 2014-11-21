@@ -12,7 +12,7 @@ import UIKit
 
 protocol StatusCheckDelegate {
   func notOnline()
-  func startListen()
+  func startListen( #pauseMusic: Bool)
 }
 
 
@@ -42,6 +42,7 @@ class JSONData {
         -> Void in
         if error != nil {
         println("OPS, an error occured")
+          println(error.description)
         return
         }
         
@@ -66,7 +67,7 @@ class JSONData {
                   self.title = title
             
                   // Notify VC it can start to connect
-                  self.delegate?.startListen()
+                  self.delegate?.startListen(pauseMusic: false)
                   return
                 }
               }

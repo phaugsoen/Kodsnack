@@ -25,11 +25,8 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
 
   
   @IBOutlet weak var topBar : UIToolbar!
-  
   @IBOutlet weak var onlineStatusLbl: UILabel!
-  
   @IBOutlet weak var pauseButton: UIBarButtonItem!
-  
   @IBOutlet weak var playButton: UIBarButtonItem!
   
   var player : AVPlayer!
@@ -38,28 +35,32 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   var selectedStreamID = "Kodsnack"
  
   
- // var urlToCast = NSURL(string: Apple_test_stream )
-  
-
-  
   @IBAction func playSomething(sender: AnyObject) {
-    
-    startListenP4()
-    
+        startListen(pauseMusic: true)
   }
   
+  deinit {
+    println("DEINIT, removeing observer")
+    player.removeObserver(self, forKeyPath: "status")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    
+   
     // Set the view bg to same as KodSnack pic bg grey #DCDCDC
     let kodSnackColor = UIColor(red:0.86,green: 0.86,blue: 0.86,alpha: 1)
     view.backgroundColor = kodSnackColor
 
-  tryToConnect()
+    tryToConnect()
+  }
+  
+  
+  func notifStartListen(notification: NSNotification) {
+    println("Notif in VC about start listen")
+    startListen(pauseMusic: true)
     
-     }
+  }
+  
   
   func tryToConnect() {
     
@@ -72,24 +73,6 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   }
   
   
-  /*
-
-  [UIView animateWithDuration:duration delay:0
-  usingSpringWithDamping:damping initialSpringVelocity:0.0f
-  options:0 animations:^{
-  primaryConstraint.constant = 0;
-  [self.view layoutIfNeeded];
-  } completion:nil];
-
-*/
-  
-  func bounce() {
-    
-//    UIView.animateWithDuration(2.0, delay: 0.3, usingSpringWithDamping: 0.4, initialSpringVelocity: 2.0, options: 0, animations: <#() -> Void##() -> Void#>, completion: <#((Bool) -> Void)?##(Bool) -> Void#>)
-    
-  }
-  
-  
   
   // Protocol callbacks
   func notOnline() {
@@ -99,53 +82,82 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     onlineStatusLbl.text = "not online"
     
     
-    if let posErrStr = self.jsonData.error_json {
-      println("ERROR:\(posErrStr)")
-    }
+ //   if let posErrStr = self.jsonData.error_json {
+ //     println("ERROR:\(posErrStr)")
+ //   }
     
     var timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector:"tryToConnect", userInfo: nil, repeats: false)
  
     
   }
   
-  func startListen() {
-    println("StartListen called in VC")
+  func dummy() {
+    println("Dummy called")
+  }
+  
+  
+  
+  func startListen( #pauseMusic: Bool) {
     
-    onlineStatusLbl.textColor = UIColor.greenColor()
-    onlineStatusLbl.text = "online"
+    if let posPlayer = player {
+      if player.rate > 0.0 {
+        println("already playing")
+        return
+      }
+    }
+  
     
     var error:NSError?
-    var urlToCast = NSURL(string: jsonData.listen_url )
- //   var urlToCast = NSURL(string: "http://sverigesradio.se/topsy/direkt/164-hi-mp3.m3u")
-    AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+    var urlToCast = NSURL()
+    
+    println("StartListen called in VC")
+    
+    
+    
+    if pauseMusic {
+      
+      if let str = streamDir["P4STH"] {
+        urlToCast = NSURL(string: str)!
+      } else {
+        fatalError("Error in stream DIR, cant cont")
+      }
+    } else {
+      urlToCast = NSURL(string: jsonData.listen_url)!
+      onlineStatusLbl.textColor = UIColor.greenColor()
+      onlineStatusLbl.text = "online"
+    }
 
+    AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
     AVAudioSession.sharedInstance().setActive(true, error: nil)
     
     playerItem = AVPlayerItem(URL: urlToCast)
     player = AVPlayer(playerItem: playerItem)
+    player.volume = 1
     
     let options = NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old
     player.addObserver(self, forKeyPath: "status", options: options, context: nil)
+
   }
+
 
   
  
-  
-  
-  func startListenP4() {
-    println("StartListenP4 called in VC")
-    var error:NSError?
-    var urlToCast = NSURL(string: "http://sverigesradio.se/topsy/direkt/164-hi-mp3.m3u")
-    AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-    AVAudioSession.sharedInstance().setActive(true, error: nil)
+  func fadeIn() {
     
-    playerItem = AVPlayerItem(URL: urlToCast)
-    player = AVPlayer(playerItem: playerItem)
+    let params = AVMutableAudioMixInputParameters()
+    let timeR = CMTimeRangeMake(CMTimeMake(0,1), CMTimeMake(5, 1))
+    params.setVolumeRampFromStartVolume(0.0, toEndVolume: 1.0, timeRange: timeR)
+    let allParams = [params]
     
-    let options = NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old
-    player.addObserver(self, forKeyPath: "status", options: options, context: nil)
+    let mix = AVMutableAudioMix()
+    mix.inputParameters = allParams
+    player.currentItem.audioMix = mix
   }
-
+  
+  
+  
+  
+ 
   
   
   override func observeValueForKeyPath(keyPath: String,
@@ -163,9 +175,13 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
           println("Ready to play")
           player.allowsExternalPlayback = false
           player.play()
+          fadeIn()
+
           playButton.enabled = false
           println("Listening...")
       }
+      
+      
       
     default:
       super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
@@ -178,7 +194,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   @IBAction  func handleTap(recognizer:UITapGestureRecognizer) {
     
     if recognizer.numberOfTouches() == 1 {
-      startListenP4()
+      startListen(pauseMusic: true)
     }
   }
   

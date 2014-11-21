@@ -38,6 +38,7 @@
 		0F0F0F5B1A1B59AC00948D4D /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		0F2EA6501A1E29C200EF0207 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = Kodsnack/.gitignore; sourceTree = "<group>"; };
 		0F2EA6521A1E2A0900EF0207 /* LICENCE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
+		0F2EA6541A1E8F2A00EF0207 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0F3468321A1A30B100D8C662 /* vt323.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = vt323.ttf; sourceTree = "<group>"; };
 		0F3468331A1A30B100D8C662 /* kodsnack-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kodsnack-60.png"; sourceTree = "<group>"; };
 		0F3468341A1A30B100D8C662 /* kodsnack_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kodsnack_1024.jpg; sourceTree = "<group>"; };
@@ -51,7 +52,7 @@
 		0F8038BA1A16012000BD386F /* KodsnackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KodsnackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8038BF1A16012000BD386F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F8038C01A16012000BD386F /* KodsnackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KodsnackTests.swift; sourceTree = "<group>"; };
-		0F8038CA1A16298F00BD386F /* TODO and README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "TODO and README.txt"; sourceTree = "<group>"; };
+		0F8038CA1A16298F00BD386F /* TODO and README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "TODO and README.txt"; path = "Kodsnack/TODO and README.txt"; sourceTree = "<group>"; };
 		0F8038CC1A162F6A00BD386F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		0F8038CE1A16374A00BD386F /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				0F2EA6521A1E2A0900EF0207 /* LICENCE */,
+				0F2EA6541A1E8F2A00EF0207 /* README.md */,
+				0F8038CA1A16298F00BD386F /* TODO and README.txt */,
 				0F8038CE1A16374A00BD386F /* File */,
 				0F2EA6501A1E29C200EF0207 /* .gitignore */,
 				0F8038A71A16012000BD386F /* Kodsnack */,
@@ -125,7 +128,6 @@
 				0F8038B31A16012000BD386F /* LaunchScreen.xib */,
 				0F3468301A1A30B100D8C662 /* Resources */,
 				0F8038A81A16012000BD386F /* Supporting Files */,
-				0F8038CA1A16298F00BD386F /* TODO and README.txt */,
 			);
 			path = Kodsnack;
 			sourceTree = "<group>";

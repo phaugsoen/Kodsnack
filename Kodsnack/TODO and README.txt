@@ -3,6 +3,16 @@
 
 Ideer och TODO
 **************
+* Kanske ha en lokal fil med bakgrundsmusik, nåt passande?
+
+* Skriv till AppSnack om när de är live, jag behöver testa och tekniken verkar samma...
+
+* KVO remove observer på player någonstans, vart? Kanske lösningen är att deklarera
+och init av player i klassen, inte i metoden?
+
+* Hörs även om telefon är mutad med knappen
+* Exp mera med player.volume. Kanske finns mer saker att sätta. T.ex tona in ljudets
+* Prova MPVolumeView... för att sätta volym rel riktiga vol
 * Måste tänka om och rätt enl Apple när det gäller background och pausmusik
 * Kanske passar bättre med lite modernare och mer iOS typisk t utseende
 * Lämplig hissmusik? En lista kanske behövs som fall back

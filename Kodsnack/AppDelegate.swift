@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Debug printing
     println("resign active ")
+    
+    NSNotificationCenter.defaultCenter().postNotificationName("notifStartListen", object: self, userInfo: nil)
+    
+  //  let mainVC = window?.rootViewController as ViewController
+  //  mainVC.dummy()
   }
 
   func applicationDidEnterBackground(application: UIApplication) {
@@ -42,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      // Debug printing
     println("did enter background")
+    
+    
   }
 
   func applicationWillEnterForeground(application: UIApplication) {

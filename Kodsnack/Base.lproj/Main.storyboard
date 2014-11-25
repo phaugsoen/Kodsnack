@@ -65,6 +65,14 @@
                                             <action selector="retry" destination="BYZ-38-t0r" id="NEA-97-ymj"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="08x-Ny-Ft6"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="WTT-we-1bh"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nNA-PG-oPN"/>
+                                    <barButtonItem systemItem="compose" id="Xfl-eS-fGD" userLabel="Chat">
+                                        <connections>
+                                            <segue destination="efA-U5-on5" kind="show" identifier="showChat" id="6Qr-nN-C3j"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dfZ-X5-QVh"/>
                                 </items>
                             </toolbar>
@@ -190,7 +198,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.86268144845962524" green="0.86278229951858521" blue="0.86263507604598999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Dap-HM-Xyj" firstAttribute="top" secondItem="xC7-8Z-ySQ" secondAttribute="bottom" constant="-36" id="0Wq-7m-1Zu"/>
@@ -226,6 +234,55 @@
             </objects>
             <point key="canvasLocation" x="2056" y="547"/>
         </scene>
+        <!--ChatVC-->
+        <scene sceneID="gDy-Te-0O9">
+            <objects>
+                <viewController id="efA-U5-on5" customClass="ChatVC" customModule="Kodsnack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="555-ED-ZQG"/>
+                        <viewControllerLayoutGuide type="bottom" id="RO6-ke-hFq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A7a-jg-mJf">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleAspectFit" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UD6-Pd-J7q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="efA-U5-on5" id="dGk-m6-cCh"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uys-0a-WEh">
+                                <rect key="frame" x="16" y="540" width="60" height="60"/>
+                                <state key="normal" image="kodsnack-60">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitPressed:" destination="efA-U5-on5" eventType="touchUpInside" id="3GW-EM-HKq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RO6-ke-hFq" firstAttribute="top" secondItem="UD6-Pd-J7q" secondAttribute="bottom" id="9fq-z9-u5D"/>
+                            <constraint firstItem="UD6-Pd-J7q" firstAttribute="top" secondItem="A7a-jg-mJf" secondAttribute="topMargin" id="C1y-f9-G9b"/>
+                            <constraint firstItem="uys-0a-WEh" firstAttribute="leading" secondItem="A7a-jg-mJf" secondAttribute="leadingMargin" id="HPh-1Z-AK6"/>
+                            <constraint firstItem="UD6-Pd-J7q" firstAttribute="leading" secondItem="A7a-jg-mJf" secondAttribute="leadingMargin" constant="-16" id="QRZ-th-lf6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UD6-Pd-J7q" secondAttribute="trailing" constant="-16" id="UOP-qo-GI8"/>
+                            <constraint firstItem="RO6-ke-hFq" firstAttribute="top" secondItem="uys-0a-WEh" secondAttribute="bottom" id="f6Z-a2-sgs"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="web" destination="UD6-Pd-J7q" id="trZ-3b-eCT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhh-8p-9PP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933" y="1277"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jSe-yD-waL">
             <objects>
@@ -248,6 +305,7 @@
     </scenes>
     <resources>
         <image name="Big Image in VC" width="300" height="300"/>
+        <image name="kodsnack-60" width="60" height="60"/>
     </resources>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

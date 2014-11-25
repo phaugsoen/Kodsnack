@@ -24,12 +24,13 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
                        {
 
   
+  
   @IBOutlet weak var topBar : UIToolbar!
   @IBOutlet weak var onlineStatusLbl: UILabel!
   @IBOutlet weak var pauseButton: UIBarButtonItem!
   @IBOutlet weak var playButton: UIBarButtonItem!
   
-  var player : AVPlayer!
+  var player : AVPlayer
   var playerItem : AVPlayerItem!
   var jsonData : JSONData!
   var selectedStreamID = "Appsnack"
@@ -40,9 +41,18 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
         startListen(pauseMusic: true)
   }
   
+    required init(coder aDecoder: NSCoder) {
+        
+        self.player = AVPlayer()
+        
+        super.init(coder:aDecoder)
+    }
+
+    
+    
   deinit {
-    println("DEINIT, removeing observer")
-    player.removeObserver(self, forKeyPath: "status")
+    println("DEINIT, removing observer in VC")
+//    player.removeObserver(self, forKeyPath: "status")
   }
   
   override func viewDidLoad() {
@@ -52,6 +62,13 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     let kodSnackColor = UIColor(red:0.86,green: 0.86,blue: 0.86,alpha: 1)
     view.backgroundColor = kodSnackColor
 
+    // Listen for entering of bg state
+    NSNotificationCenter.defaultCenter().addObserver( self,
+        selector: "notifStartListen:",
+        name:"notifStartListen",
+        object: nil)
+    
+    
     tryToConnect()
   }
   
@@ -82,6 +99,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     onlineStatusLbl.textColor = UIColor.redColor()
     onlineStatusLbl.text = "not online"
     
+    startListen(pauseMusic: true)
     
  //   if let posErrStr = self.jsonData.error_json {
  //     println("ERROR:\(posErrStr)")
@@ -98,50 +116,54 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   
   
   
-  func startListen( #pauseMusic: Bool) {
-    
-    if let posPlayer = player {
-      if player.rate > 0.0 {
-        println("already playing")
-        return
-      }
-    }
-  
-    
-    var error:NSError?
-    var urlToCast = NSURL()
-    
-    println("StartListen called in VC")
-    
-    
-    
-    if pauseMusic {
+    func startListen( #pauseMusic: Bool) {
+        println("-> StartListen")
+        if player.rate > 0.0 {
+            print("already playing")
+            if pauseMusic {
+                println(" PAUSE MUSIC")
+                return
+            } else {
+                println(" LIVE")
+                println("####### ERROR, should not happen")
+                return
+            }
+        } else {
+            print("Starting to play")
+            var error:NSError?
+            var urlToCast = NSURL()
+            
       
-      if let str = streamDir["P4STH"] {
-        urlToCast = NSURL(string: str)!
-      } else {
-        fatalError("Error in stream DIR, cant cont")
-      }
-    } else {
-      urlToCast = NSURL(string: jsonData.listen_url)!
-      onlineStatusLbl.textColor = UIColor.greenColor()
-      onlineStatusLbl.text = "online"
+            
+            if pauseMusic {
+                println(" Pause Music")
+                urlToCast = NSBundle.mainBundle().URLForResource("bensound-theelevatorbossanova", withExtension: "mp3")!
+            } else {
+                println(" Live")
+                urlToCast = NSURL(string: jsonData.listen_url)!
+                onlineStatusLbl.textColor = UIColor.greenColor()
+                onlineStatusLbl.text = "online"
+            }
+            
+            AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+            AVAudioSession.sharedInstance().setActive(true, error: nil)
+            player = AVPlayer(URL: urlToCast)
+            
+            if pauseMusic {
+                player.volume = 0.3
+            } else {
+                player.volume = 1
+            }
+            
+            let options = NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old
+            player.addObserver(self, forKeyPath: "status", options: options, context: nil)
+            
+        }
     }
-
-    AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-    AVAudioSession.sharedInstance().setActive(true, error: nil)
     
-    playerItem = AVPlayerItem(URL: urlToCast)
-    player = AVPlayer(playerItem: playerItem)
-    player.volume = 1
-    
-    let options = NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old
-    player.addObserver(self, forKeyPath: "status", options: options, context: nil)
-
-  }
-
-
   
+    
+    
  
   func fadeIn() {
     
@@ -180,6 +202,10 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
 
           playButton.enabled = false
           println("Listening...")
+            
+          println("removing observer...")
+          player.removeObserver(self, forKeyPath: "status")
+            
       }
       
       
@@ -236,7 +262,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   
   @IBAction func play(sender: AnyObject) {
     println("play pressed")
-    if player != nil {
+ //   if player != nil {
       if player.rate == 0.0 {
         player.play()
         pauseButton.enabled = true
@@ -246,7 +272,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
         pauseButton.enabled = false
         playButton.enabled = true
       }
-    }
+ //   }
   }
   
   
@@ -265,17 +291,14 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     }
   }
   */
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-    let toViewController = segue.destinationViewController as UIViewController
-    self.modalPresentationStyle = UIModalPresentationStyle.Custom
-    toViewController.transitioningDelegate = self.transitionOperator
-  }
- 
-   /*
-    let toViewController = segue.destinationViewController as UIViewController
-    self.modalPresentationStyle = UIModalPresentationStyle.Custom
-    toViewController.transitioningDelegate = self.transitionOperator
- */
-  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "presentNav" {
+            
+            let toViewController = segue.destinationViewController as UIViewController
+            self.modalPresentationStyle = UIModalPresentationStyle.Custom
+            toViewController.transitioningDelegate = self.transitionOperator
+        } else if segue.identifier == "showChat" {
+            }
+    }
 }

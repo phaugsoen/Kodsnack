@@ -101,9 +101,6 @@
                     <navigationItem key="navigationItem" id="qVc-km-pvk">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="hUY-zU-l8A">
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="zkn-PV-Maa" kind="presentation" identifier="streamChoice" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="tB5-Zj-X5O"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
@@ -111,6 +108,7 @@
                         <outlet property="onlineStatusLbl" destination="plB-Qs-zj6" id="0la-8i-M3i"/>
                         <outlet property="pauseButton" destination="Vv1-YR-26R" id="8wf-Ov-1S9"/>
                         <outlet property="playButton" destination="Lue-bo-VSa" id="xlO-Mb-CX1"/>
+                        <segue destination="zkn-PV-Maa" kind="custom" identifier="presentNav" id="Q8U-IP-rho"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,12 +124,12 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1232" y="571"/>
+            <point key="canvasLocation" x="1294" y="580"/>
         </scene>
         <!--Select View Controller-->
         <scene sceneID="mrM-aS-8En">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="zkn-PV-Maa" customClass="SelectViewController" customModule="Kodsnack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="zkn-PV-Maa" customClass="SelectViewController" customModule="Kodsnack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l8Z-Dc-PBX"/>
                         <viewControllerLayoutGuide type="bottom" id="tKp-Yp-UYB"/>
@@ -226,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiS-jm-5om" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921" y="486"/>
+            <point key="canvasLocation" x="2056" y="547"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jSe-yD-waL">

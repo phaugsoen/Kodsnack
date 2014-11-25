@@ -32,8 +32,9 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   var player : AVPlayer!
   var playerItem : AVPlayerItem!
   var jsonData : JSONData!
-  var selectedStreamID = "Kodsnack"
+  var selectedStreamID = "Appsnack"
  
+  var transitionOperator = TransitionOperator()
   
   @IBAction func playSomething(sender: AnyObject) {
         startListen(pauseMusic: true)
@@ -202,7 +203,7 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     println("Pinch: \(recognizer.scale)")
     
     if recognizer.scale > 1 {
-      performSegueWithIdentifier("streamChoice", sender: self)
+      performSegueWithIdentifier("presentNav", sender: self)
     }
     
     
@@ -255,12 +256,26 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
   }
   
   // When pushing selection VC, set self to delegate of the protocol
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "streamChoice" {
+/* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "presentNav" {
       let dvc = segue.destinationViewController as SelectViewController
+      self.modalPresentationStyle = UIModalPresentationStyle.Custom
+      dvc.transitioningDelegate = self.transitionOperator
       dvc.delegate = self
     }
   }
-  
+  */
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    let toViewController = segue.destinationViewController as UIViewController
+    self.modalPresentationStyle = UIModalPresentationStyle.Custom
+    toViewController.transitioningDelegate = self.transitionOperator
+  }
+ 
+   /*
+    let toViewController = segue.destinationViewController as UIViewController
+    self.modalPresentationStyle = UIModalPresentationStyle.Custom
+    toViewController.transitioningDelegate = self.transitionOperator
+ */
   
 }

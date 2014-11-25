@@ -22,6 +22,7 @@
 		0F8038CB1A16298F00BD386F /* TODO and README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038CA1A16298F00BD386F /* TODO and README.txt */; };
 		0F8038CD1A162F6A00BD386F /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038CC1A162F6A00BD386F /* JSONData.swift */; };
 		0F8038CF1A16374A00BD386F /* File in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038CE1A16374A00BD386F /* File */; };
+		0FCB79D01A1FAD2100CD7164 /* TransitionOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB79CF1A1FAD2100CD7164 /* TransitionOperator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		0F8038CA1A16298F00BD386F /* TODO and README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "TODO and README.txt"; path = "Kodsnack/TODO and README.txt"; sourceTree = "<group>"; };
 		0F8038CC1A162F6A00BD386F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		0F8038CE1A16374A00BD386F /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		0FCB79CF1A1FAD2100CD7164 /* TransitionOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionOperator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				0F8038AA1A16012000BD386F /* AppDelegate.swift */,
 				0F8038AC1A16012000BD386F /* ViewController.swift */,
+				0FCB79CF1A1FAD2100CD7164 /* TransitionOperator.swift */,
 				0F8038CC1A162F6A00BD386F /* JSONData.swift */,
 				0F8038AE1A16012000BD386F /* Main.storyboard */,
 				0F0F0F5B1A1B59AC00948D4D /* SelectViewController.swift */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F0F0F5C1A1B59AC00948D4D /* SelectViewController.swift in Sources */,
+				0FCB79D01A1FAD2100CD7164 /* TransitionOperator.swift in Sources */,
 				0F8038AD1A16012000BD386F /* ViewController.swift in Sources */,
 				0F8038AB1A16012000BD386F /* AppDelegate.swift in Sources */,
 				0F8038CD1A162F6A00BD386F /* JSONData.swift in Sources */,

@@ -31,6 +31,7 @@ class JSONData {
   }
   
   func getStatus(url_string: String) {
+    println("Asking \(url_string) for json")
     
     let request = NSURLRequest(URL: NSURL(string: url_string)!)
     

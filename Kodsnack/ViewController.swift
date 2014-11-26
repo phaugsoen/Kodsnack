@@ -175,6 +175,8 @@ class ViewController: UIViewController, StatusCheckDelegate, StreamChangedDelega
     let mix = AVMutableAudioMix()
     mix.inputParameters = allParams
     player.currentItem.audioMix = mix
+    
+    
   }
   
   

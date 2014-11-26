@@ -63,14 +63,17 @@ class JSONData {
           if let parsed = parsed as? [String:AnyObject] {
             if let icestats = parsed["icestats"] as? NSDictionary {
               if let source = icestats["source"] as? NSDictionary {
-                if let title = source["title"] as? String {
-                  self.listen_url = title
-                  self.title = title
+               
+                self.listen_url = source["listenurl"] as String
+                self.title = source["listenurl"] as String
+              //  if let title = source["title"] as? String {
+              //    self.listen_url = title
+              //    self.title = title
             
                   // Notify VC it can start to connect
                   self.delegate?.startListen(pauseMusic: false)
                   return
-                }
+              //  }
               }
             }
           }

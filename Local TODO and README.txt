@@ -1,4 +1,74 @@
+Android visar antalet lyssnare
+Den visar automatiskt Appsnack, inte kodsnack nu när appsnack kör. Var inte tydligt.
+Den måste känna av vad som körs.
 
+Kodsnack och Appsnack är samma server. Helt transparent.
+
+Jag måste alltså kolla params i svaret för att avgöra vilken det är. Server_name = Appsnack nu
+
+Grön online label blir grön men dålig färg, syns knappt.
+Paus verkar funka, men vet inte hur länge man kan...
+Paus är pause, inte mute...
+Klick på bild under live så skrics "alrady playing PAUSE MUSIC"
+Går man ur chatten med knapp så får man logga in igen sen. är inte så bra. Borde den vara på samma sida? Varna mer om man går tillbaka?
+Varför gå tillbaka? Paus och mute knapp i Chat VC?
+
+Mute knapp (inte paus) i main VC
+Startar om appen från scratch på device så spelar den direkt. Blir grön text.
+Byter man till annan app: spelar fortf i bakgrunden!
+Den visas i control center men med play knapp. Händer inget om man trycker på den.
+Fungerar att gå tillbaka till appen via dubbelklick! Pause etc funkar efter det.
+På datorn hörs det bara i höger högtalare
+
+plötsligt stannande den bara på enhet, tyst och inget att klicka på. Provar detta igen... men får nog prova mer nästa gång
+
+När jag ringer in så går den över till att spela min paus musik :) Detta samtidigt som det ringer. När jag
+nekar och sen kommer tillbaka till appen så måste jag trycka restart/replay. Vid andra försöket, samma resultat
+men kan inte få igång live igen, bara hiss och kan inte trycka pause el play. (svarade grön andra ggn, första ggn röd).
+Tror jag hamnade i caset "should not happen" när jag svarade och kom tillbaka"
+
+När live över tar det bara slut. Visar grönt online, men curl visar off line. Så är väl koden
+när nåt tar slut. Vad göra? Om jag trycker reload el bilden så får jag not online och sedan att
+den redan spelar pause musik.
+
+Androidappen visar offline, 3 lyssnare...
+
+Kanske konfa anv o lösen för chatten?
+
+
+fixat och funkar
+
+ingebn title i source så hoppar ur och ger
+
+### ovan är kommentarer från första provkörningen mot Appsnack
+
+
+** Ide, App och KS bilderna snurrar och växlar
+
+
+icestats =     {
+admin = "icemaster@localhost";
+host = "live.kodsnack.se";
+location = Earth;
+"server_id" = "Icecast 2.4.0";
+"server_start" = "Tue, 02 Sep 2014 22:07:35 +0200";
+"server_start_iso8601" = "2014-09-02T22:07:35+0200";
+source =         {
+bitrate = 96;
+dummy = "<null>";
+genre = Podcast;
+"listener_peak" = 4;
+listeners = 1;
+listenurl = "http://live.kodsnack.se:8000/appsnack";
+"server_description" = "Unspecified description";
+"server_name" = Appsnack;
+"server_type" = "audio/mpeg";
+"server_url" = "http://live.kodsnack.se:8000/appsnack";
+"stream_start" = "Tue, 25 Nov 2014 18:12:21 +0100";
+"stream_start_iso8601" = "2014-11-25T18:12:21+0100";
+};
+};
+})
 
 
 

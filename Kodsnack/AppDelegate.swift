@@ -17,15 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
     
-/* Lista available fonts
-    let fams = UIFont.familyNames()
-    for aFam in fams {
-      println("\(aFam.description)")
-      for aName in UIFont.fontNamesForFamilyName(aFam.description) {
-        println("name:\(aName)")
-      }
-    }
- */
+    
+    // register for local notifications (permission)
+    let notPermSett = UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert, categories: nil)
+    
+    application.registerUserNotificationSettings(notPermSett)
+    
+    
+  //  let orange = UIColor.orangeColor()
+    
+    
+   // listFonts()
     return true
   }
 
@@ -46,9 +48,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      // Debug printing
+    
+    // setup local notifications
+    
+/*
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    localNotification.alertBody = @"new Blog Posted at iOScreator.com";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+  */
+    
     println("did enter background")
-    
-    
+ /*
+    let locNot = UILocalNotification()
+    locNot.fireDate = NSDate(timeIntervalSinceNow: 10)
+    locNot.alertBody = "The podcast is now Live"
+    locNot.soundName = UILocalNotificationDefaultSoundName
+    locNot.timeZone = NSTimeZone.defaultTimeZone()
+    UIApplication.sharedApplication().scheduleLocalNotification(locNot)
+   */
   }
 
   func applicationWillEnterForeground(application: UIApplication) {
@@ -67,7 +86,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         println("will terminate")
   }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        println("Got Notification about Live broadcast")
+    }
+    
 
+    
+    
+    
 
 }
 

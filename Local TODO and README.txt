@@ -1,49 +1,154 @@
-Android visar antalet lyssnare
-Den visar automatiskt Appsnack, inte kodsnack nu när appsnack kör. Var inte tydligt.
-Den måste känna av vad som körs.
+Förbättringsförslag efter Test-1
+################################
 
-Kodsnack och Appsnack är samma server. Helt transparent.
-
-Jag måste alltså kolla params i svaret för att avgöra vilken det är. Server_name = Appsnack nu
-
-Grön online label blir grön men dålig färg, syns knappt.
-Paus verkar funka, men vet inte hur länge man kan...
-Paus är pause, inte mute...
-Klick på bild under live så skrics "alrady playing PAUSE MUSIC"
-Går man ur chatten med knapp så får man logga in igen sen. är inte så bra. Borde den vara på samma sida? Varna mer om man går tillbaka?
-Varför gå tillbaka? Paus och mute knapp i Chat VC?
-
-Mute knapp (inte paus) i main VC
-Startar om appen från scratch på device så spelar den direkt. Blir grön text.
-Byter man till annan app: spelar fortf i bakgrunden!
-Den visas i control center men med play knapp. Händer inget om man trycker på den.
-Fungerar att gå tillbaka till appen via dubbelklick! Pause etc funkar efter det.
-På datorn hörs det bara i höger högtalare
-
-plötsligt stannande den bara på enhet, tyst och inget att klicka på. Provar detta igen... men får nog prova mer nästa gång
-
-När jag ringer in så går den över till att spela min paus musik :) Detta samtidigt som det ringer. När jag
-nekar och sen kommer tillbaka till appen så måste jag trycka restart/replay. Vid andra försöket, samma resultat
-men kan inte få igång live igen, bara hiss och kan inte trycka pause el play. (svarade grön andra ggn, första ggn röd).
-Tror jag hamnade i caset "should not happen" när jag svarade och kom tillbaka"
-
-När live över tar det bara slut. Visar grönt online, men curl visar off line. Så är väl koden
-när nåt tar slut. Vad göra? Om jag trycker reload el bilden så får jag not online och sedan att
-den redan spelar pause musik.
-
-Androidappen visar offline, 3 lyssnare...
-
-Kanske konfa anv o lösen för chatten?
+* Bilden studsar när Live startar
+* Tydligare notif om att nu har det börjat! Hur? Lämpligt!?
 
 
-fixat och funkar
 
-ingebn title i source så hoppar ur och ger
-
-### ovan är kommentarer från första provkörningen mot Appsnack
+* web ej ok på sexa device
 
 
-** Ide, App och KS bilderna snurrar och växlar
+* Finputsa transitions
+
+* Pausmusik för att vara Apple-OK, men möjl att pausa den. Sedan när live startar så går den igång!?!?!
+
+* Visa antalet lyssnare online som Android. Vid start enkelt, men om den skall hålla uppdaterat lite mer komplicerat.
+
+
+* Ta fram en testplan inför nästa livetillfälle
+
+* En muteknapp??
+
+* Gör play och paus till EN knapp som växlar ( Se först till att de funkar som avsedd i dagens läge)
+
+* Kanske ta bort VC med podval. Finns väl inget behov då kod o app samma. Kanske ett annat
+sätt att manuellt ange en JSON sträng/pod, för test?
+
+
+
+Bugs efter T-1
+##############
+
+
+* Vid inkommande samtal börjar den spela pausmusik samtidigt som ringsignaler.
+    - Om samtal nekas och återgång till App så måste man trycka restart för att spela, sen OK.
+    - Om samtal tas emot och sedan återgång spelas paus och går inte att trycka några knappar. Kan vara case should not happen.
+      Kanske should not happen borde börja spela om?
+
+
+* OK! När live är slut så händer ingenting förutom att det blir tyst. Visar online. Om jag trycker reload
+  el på bilden så går den in i det korrekta vänteläget med pausmusik
+
+
+
+Testfall
+########
+* Hur länge kan man göra paus? Vad står det i spec? Vad händer? Äter den minne för lokal buffer?
+* Kör länge i Xcode/device för att se om den stannar och fel dyker upp. Hände en gång under T-1
+* Testa kontrollcenter mera
+
+
+
+
+
+Ideer och TODO
+**************
+
+
+* Exp mera med player.volume. Kanske finns mer saker att sätta. T.ex tona in ljudets
+
+* Måste tänka om och rätt enl Apple när det gäller background och pausmusik
+* Kanske passar bättre med lite modernare och mer iOS typisk t utseende
+* Lämplig hissmusik? En lista kanske behövs som fall back
+* Går det att trigga via Twitter, we are now live?
+* Skriv en README för GitHUB
+
+* Med timer och ingen musik görs resign active när jag går till background och timer utlöses inte.
+Kanske löses med att spela någon annan musik så länge?
+
+
+
+* Det SKALL fungera att köra i bakgrunden. Bör dock prova lite saker så som inkommande samtal, notifieringar, byte av nät etc.
+
+
+
+* Gör en snygg parse av JSON till Swift
+* Visa en equlizer som Overcast har
+* Slänga iväg bilden som i twitter
+
+
+
+Done
+####
+* Ändra on och offline röd grön till något bättre. Grön färg syns dålig, passar dåligt och är fult.
+
+* Alert ser den ok ut? Blå rubrik? Bra text?
+Rubrik kanske vara utläggning?
+* Prova MPVolumeView... för att sätta volym rel riktiga vol
+
+* Ändra chaten till att anpassa kanal efter app el kod
+
+* Visa tid till nästa live
+* Push notif för nästa event
+* Kan den ligga i bakgrunden trots att det INTE finns någon stream. Apples regler säger att den skall spela ljud för att
+det skall vara ok.
+
+* Enkelt kunna byta till annan Pod
+* OM JSON query och parse funkar, hämta mer info, rate, channels etc.
+* Fixa liggande
+* Gör så att radio STH spelar OM det inte funkar med någonting annat.
+
+* Visa snurrande logo som växlar i vänteläget. När väl kontakt välj rätt.
+
+* Skall känna av om det är App eller Kod som streamas och ändra logo/titel efter detta. Finns i "server_name"
+
+* Snurran skall stanna när live startar
+
+* Hörs även om telefon är mutad med knappen
+* Man kan inte gåtillbaka till Main VC från chat, då går man ur chatten.
+- Samma sida?
+- Varna? Tror detta är det bästa!
+- Varför gå tillbaka?
+- Inställning som sparar användare/lösen i chat?
+
+* Snurra logga title lite då och då när det är pausmusik. Timer?
+* kiwi till chatikon, folk el bubbla
+* Lägga konstanter etc separat
+* Error från webload
+* Byta icon för avsluta Chat. Ett kryss?
+
+* Klick på logo live så skrivs "already playing PAUSE MUSIC". Hamnare antagligen i fallet could not happen...
+
+* Finns ingen title att läsa i JSON, ta bort detta (fixat!?)
+
+* Control center visas men fungerar ej.
+* På datorn hörs det bara i höger högtalare när simulator körs.
+* repeat av bossanova
+
+* Kanske ha en lokal fil med bakgrundsmusik, nåt passande?
+
+
+* KVO remove observer på player någonstans, vart? Kanske lösningen är att deklarera
+och init av player i klassen, inte i metoden?
+
+* Skriv till AppSnack om när de är live, jag behöver testa och tekniken verkar samma...
+
+* Varför sätts inte ngn lyssnare upp på notifStartListen?
+
+* Lägg upp på Github
+* Inför att den ligger och väntar på att kunna ansluta (poll?)
+
+* Gör en separat startListen som faller tillbaka på P4 vid klick på bilden, t.ex
+
+* Gör em build fär App Store
+* Kan man ha den i bakgrunden och att den ligger där och sen vaknar till
+när väl LIVE börjar, och då spelar? background, på nåt sätt. Undersök detta.
+* Inför manuell möjl till reconnect
+* Om INTE online/live, anslut och spela pausmusik, som förhoppningsvis finns på nätet....
+
+
+###### Data from ICE
 
 
 icestats =     {
@@ -71,68 +176,6 @@ listenurl = "http://live.kodsnack.se:8000/appsnack";
 })
 
 
-
-Ideer och TODO
-**************
-* repeat av bossanova
-
-* Kanske ha en lokal fil med bakgrundsmusik, nåt passande?
-
-
-* KVO remove observer på player någonstans, vart? Kanske lösningen är att deklarera
-och init av player i klassen, inte i metoden?
-
-* Hörs även om telefon är mutad med knappen
-* Exp mera med player.volume. Kanske finns mer saker att sätta. T.ex tona in ljudets
-* Prova MPVolumeView... för att sätta volym rel riktiga vol
-* Måste tänka om och rätt enl Apple när det gäller background och pausmusik
-* Kanske passar bättre med lite modernare och mer iOS typisk t utseende
-* Lämplig hissmusik? En lista kanske behövs som fall back
-* Går det att trigga via Twitter, we are now live?
-* Skriv en README för GitHUB
-
-* Med timer och ingen musik görs resign active när jag går till background och timer utlöses inte.
-Kanske löses med att spela någon annan musik så länge?
-
-* Bilden studsar när Live startar
-* Fixa liggande
-* Gör så att radio STH spelar OM det inte funkar med någonting annat.
-
-* Det SKALL fungera att köra i bakgrunden. Bör dock prova lite saker så som inkommande samtal, notifieringar, byte av nät etc.
-* Kan den ligga i bakgrunden trots att det INTE finns någon stream. Apples regler säger att den skall spela ljud för att
-det skall vara ok.
-
-
-
-* OM JSON query och parse funkar, hämta mer info, rate, channels etc.
-* Gör en snygg parse av JSON till Swift
-
-* Visa en equlizer
-* Slänga iväg bilden som i twitter
-* Enkelt kunna byta till annan Pod
-* Visa tid till nästa live
-* Push notif för nästa event
-
-
-Done
-####
-* Skriv till AppSnack om när de är live, jag behöver testa och tekniken verkar samma...
-
-* Varför sätts inte ngn lyssnare upp på notifStartListen?
-
-* Lägg upp på Github
-* Inför att den ligger och väntar på att kunna ansluta (poll?)
-
-* Gör en separat startListen som faller tillbaka på P4 vid klick på bilden, t.ex
-
-* Gör em build fär App Store
-* Kan man ha den i bakgrunden och att den ligger där och sen vaknar till
-när väl LIVE börjar, och då spelar? background, på nåt sätt. Undersök detta.
-* Inför manuell möjl till reconnect
-* Om INTE online/live, anslut och spela pausmusik, som förhoppningsvis finns på nätet....
-
-
-###### Data from ICE
 
 
 <?xml version="1.0"?>

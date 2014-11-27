@@ -8,38 +8,120 @@
 
 import UIKit
 
-class ChatVC: UIViewController {
+class ChatVC: UIViewController, UIWebViewDelegate {
+
+ 
     
     
  @IBOutlet weak var web : UIWebView!
 
-    var URLPath = "http://kiwiirc.com/client/irc.freenode.net/Appsnack"
+    
+    var actInd = UIActivityIndicatorView()
+   
+    @IBOutlet weak var newBtn : UIButton!
+    
+    var channelName = ""
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let requestURL = NSURL(string:URLPath)
-        let request = NSURLRequest(URL:requestURL!)
         
-        web.loadRequest(request)
         
+               
+        web.backgroundColor =  kKodsnackBgColor 
+        web.delegate = self
+        loadWeb()
     }
 
-    @IBAction func exitPressed(sender: AnyObject?) {
-        if let navController = self.navigationController {
-            navController.popViewControllerAnimated(true)
+    
+    
+    func loadWeb() {
+        
+        actInd = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(actInd)
+        actInd.startAnimating()
+        
+        if let requestURL = NSURL(string:kChatURLPath + channelName) {
+            let request = NSURLRequest(URL:requestURL)
+            web.loadRequest(request)
         }
+      }
+    
+    
+    
+    @IBAction func exitPressed(sender: AnyObject?) {
+    
+        let alert = UIAlertController(title: "Warning",
+            message: "You will leave the chat room!",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        var ok = UIAlertAction(
+            title: "leave",
+            style: UIAlertActionStyle.Destructive,
+            handler: {(alert: UIAlertAction!) in
+                
+                self.dismissViewControllerAnimated(true,nil)
+        })
+        
+        var cancel = UIAlertAction(
+            title: "stay",
+            style: .Default,
+            handler: {(alert: UIAlertAction!) in
+                println("")
+        })
+        
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        presentViewController(alert, animated: true, completion: nil)
+     
     }
   
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        actInd.stopAnimating()
     }
-    */
 
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    //    println("Error loading Kiwi chat web: \(error.description)")
+
+        actInd.stopAnimating()
+        
+        let alert = UIAlertController(title: "Error loading chat room",
+            message: "An error occured when loading the chat",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        var ok = UIAlertAction(
+            title: "ok",
+            style: .Default,
+            handler: {(alert: UIAlertAction!) in
+                
+             
+        })
+        
+        var retry = UIAlertAction(
+            title: "retry",
+            style: .Default,
+            handler: {(alert: UIAlertAction!) in
+                self.loadWeb()
+        })
+        
+        alert.addAction(ok)
+        alert.addAction(retry)
+        presentViewController(alert, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func handleSwipe(sender: AnyObject) {
+        
+        self.exitPressed(sender)
+    }
+    
+    
+    
+    
+    
 }

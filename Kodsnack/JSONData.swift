@@ -18,11 +18,10 @@ protocol StatusCheckDelegate {
 
 class JSONData {
   
-  
   var delegate : StatusCheckDelegate?
 
   var listen_url = "NOT SET"
-  var title = "NO TITLE"
+  var podcast = ""
   var error_string : String?
   var error_json : String?
   
@@ -42,9 +41,13 @@ class JSONData {
         (response: NSURLResponse!, data: NSData!, error: NSError!)
         -> Void in
         if error != nil {
-        println("OPS, an error occured")
-          println(error.description)
-        return
+            println("OPS, an error occured")
+            println(error.description)
+            self.error_string = error.description
+
+            // Kanske en ny func för detta senare? Notifiera om fel....
+            self.delegate?.notOnline()
+            return
         }
         
         var error: NSError?
@@ -58,25 +61,22 @@ class JSONData {
         if error == nil {
           println("Data returned from JSON req:\(parsed)")
           
-          // we got the params, set them in this object
+          // we got the params, set them in self
           // and let VC use it for AV connection
           if let parsed = parsed as? [String:AnyObject] {
             if let icestats = parsed["icestats"] as? NSDictionary {
               if let source = icestats["source"] as? NSDictionary {
                
                 self.listen_url = source["listenurl"] as String
-                self.title = source["listenurl"] as String
-              //  if let title = source["title"] as? String {
-              //    self.listen_url = title
-              //    self.title = title
-            
+                self.podcast = source["server_name"] as String
+                
                   // Notify VC it can start to connect
                   self.delegate?.startListen(pauseMusic: false)
                   return
-              //  }
+            
               }
             }
-          }
+        }
           println("ERROR, could not get all ice params")
           self.error_string = "ERROR, could not get all ice params"
           
@@ -86,18 +86,9 @@ class JSONData {
         } else {
           // It seams icecast returns malformed JSON if not live/online,
           // so for now, if malformed eq NOT ONLINE
-        
-          
           self.error_json = NSString(data: data, encoding: NSASCIIStringEncoding)
-          
-         // println("\(error)")
           self.error_string = error?.localizedDescription
           self.delegate?.notOnline()
-      //    println("RAW:\(data.description)")
-    
-                  
-          
-          
         }
  
     }

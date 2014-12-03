@@ -20,6 +20,10 @@ class ViewController: UIViewController, StatusCheckDelegate {
     @IBOutlet weak var container : UIView!
     @IBOutlet weak var titleContainer : UIView!
     
+    
+    // test
+    var globalCounter = 0
+    
     var player : AVPlayer
     var jsonData : JSONData!
     
@@ -105,6 +109,9 @@ class ViewController: UIViewController, StatusCheckDelegate {
         object: nil)
     
     tryToConnect()
+    
+    
+    startAnimTimer()
   }
     
     
@@ -164,7 +171,7 @@ class ViewController: UIViewController, StatusCheckDelegate {
     // animate in a diff way, a timer...
     
     func startAnimTimer() {
-        //   var timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector:"tryToConnect", userInfo: nil, repeats: false)
+           var timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector:"animateBoth", userInfo: nil, repeats: false)
     }
 
     
@@ -214,7 +221,7 @@ class ViewController: UIViewController, StatusCheckDelegate {
     // notified that we entered bg mode
   func notifStartListen(notification: NSNotification) {
     println("Notif in VC about start listen")
-    startListen(pauseMusic: true)
+ //   startListen(pauseMusic: true)
     
   }
   
@@ -242,6 +249,8 @@ class ViewController: UIViewController, StatusCheckDelegate {
   }
   
 
+    
+    
     
     
     // Protocol callbacks
@@ -297,7 +306,7 @@ class ViewController: UIViewController, StatusCheckDelegate {
                 onlineStatusLbl.text = "O N L I N E"
 
                 // Notify user if App in BG
-                notifyUserLocally()
+               //  notifyUserLocally()
                 
                 
                 // show correct signs
@@ -328,6 +337,8 @@ class ViewController: UIViewController, StatusCheckDelegate {
             AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
             AVAudioSession.sharedInstance().setActive(true, error: nil)
 
+        
+            
             player = AVPlayer(URL: urlToCast)
             
             if pauseMusic {
@@ -378,6 +389,7 @@ class ViewController: UIViewController, StatusCheckDelegate {
                 player.allowsExternalPlayback = false
                 UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
                 player.play()
+                globalCounter++
                 fadeIn()
                 
                 playButton.enabled = false

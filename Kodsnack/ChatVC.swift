@@ -9,30 +9,22 @@
 import UIKit
 
 class ChatVC: UIViewController, UIWebViewDelegate {
-
- 
     
-    
- @IBOutlet weak var web : UIWebView!
-
-    
-    var actInd = UIActivityIndicatorView()
-   
+    @IBOutlet weak var web : UIWebView!
     @IBOutlet weak var newBtn : UIButton!
     
+    var actInd = UIActivityIndicatorView()
     var channelName = ""
-   
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-               
-        web.backgroundColor =  kKodsnackBgColor 
+        web.backgroundColor =  kKodsnackBgColor
         web.delegate = self
         loadWeb()
     }
-
+    
     
     
     func loadWeb() {
@@ -48,7 +40,7 @@ class ChatVC: UIViewController, UIWebViewDelegate {
             let request = NSURLRequest(URL:requestURL)
             web.loadRequest(request)
         }
-      }
+    }
     
     
     

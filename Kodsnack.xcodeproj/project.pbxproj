@@ -16,7 +16,6 @@
 		0F36192C1A273F4800A940D2 /* chat_32px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F36192B1A273F4800A940D2 /* chat_32px.png */; };
 		0F36192E1A27573C00A940D2 /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F36192D1A27573C00A940D2 /* closebutton.png */; };
 		0F397BE31A248CC000A3A83F /* Local TODO and README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0F397BE21A248CC000A3A83F /* Local TODO and README.txt */; };
-		0F397BE51A24988F00A3A83F /* bensound-theelevatorbossanova.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F397BE41A24988F00A3A83F /* bensound-theelevatorbossanova.mp3 */; };
 		0F397BED1A24BD3A00A3A83F /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F397BEC1A24BD3A00A3A83F /* ChatVC.swift */; };
 		0F397C1F1A26242300A3A83F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F397C1E1A26242300A3A83F /* TransitionManager.swift */; };
 		0F8038AB1A16012000BD386F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038AA1A16012000BD386F /* AppDelegate.swift */; };
@@ -28,6 +27,7 @@
 		0F8038CB1A16298F00BD386F /* TODO and README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038CA1A16298F00BD386F /* TODO and README.txt */; };
 		0F8038CD1A162F6A00BD386F /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8038CC1A162F6A00BD386F /* JSONData.swift */; };
 		0F8038CF1A16374A00BD386F /* File in Resources */ = {isa = PBXBuildFile; fileRef = 0F8038CE1A16374A00BD386F /* File */; };
+		0FE4C1651A2DC9A7000F244E /* bensound-theelevatorbossanova.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4C1641A2DC9A7000F244E /* bensound-theelevatorbossanova.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,6 @@
 		0F36192B1A273F4800A940D2 /* chat_32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_32px.png; sourceTree = "<group>"; };
 		0F36192D1A27573C00A940D2 /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		0F397BE21A248CC000A3A83F /* Local TODO and README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Local TODO and README.txt"; sourceTree = "<group>"; };
-		0F397BE41A24988F00A3A83F /* bensound-theelevatorbossanova.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bensound-theelevatorbossanova.mp3"; path = "../../../../../../Downloads/bensound-theelevatorbossanova.mp3"; sourceTree = "<group>"; };
 		0F397BEC1A24BD3A00A3A83F /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		0F397C1E1A26242300A3A83F /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		0F8038A51A16012000BD386F /* Kodsnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kodsnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +66,7 @@
 		0F8038CA1A16298F00BD386F /* TODO and README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "TODO and README.txt"; path = "Kodsnack/TODO and README.txt"; sourceTree = "<group>"; };
 		0F8038CC1A162F6A00BD386F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		0F8038CE1A16374A00BD386F /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		0FE4C1641A2DC9A7000F244E /* bensound-theelevatorbossanova.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-theelevatorbossanova.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				0F36192B1A273F4800A940D2 /* chat_32px.png */,
-				0F397BE41A24988F00A3A83F /* bensound-theelevatorbossanova.mp3 */,
+				0FE4C1641A2DC9A7000F244E /* bensound-theelevatorbossanova.mp3 */,
 				0F36192D1A27573C00A940D2 /* closebutton.png */,
 				0F3468311A1A30B100D8C662 /* Fonts */,
 				0F3468331A1A30B100D8C662 /* kodsnack-60.png */,
@@ -271,10 +271,10 @@
 				0F3468351A1A30B100D8C662 /* vt323.ttf in Resources */,
 				0F3468371A1A30B100D8C662 /* kodsnack_1024.jpg in Resources */,
 				0F3468361A1A30B100D8C662 /* kodsnack-60.png in Resources */,
-				0F397BE51A24988F00A3A83F /* bensound-theelevatorbossanova.mp3 in Resources */,
 				0F2EA6531A1E2A0900EF0207 /* LICENCE in Resources */,
 				0F8038B21A16012000BD386F /* Images.xcassets in Resources */,
 				0F2EA6511A1E29C200EF0207 /* .gitignore in Resources */,
+				0FE4C1651A2DC9A7000F244E /* bensound-theelevatorbossanova.mp3 in Resources */,
 				0F8038CF1A16374A00BD386F /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

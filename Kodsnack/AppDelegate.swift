@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Debug printing
     println("resign active ")
     
-    NSNotificationCenter.defaultCenter().postNotificationName("notifStartListen", object: self, userInfo: nil)
+ //   NSNotificationCenter.defaultCenter().postNotificationName("notifStartListen", object: self, userInfo: nil)
     
   //  let mainVC = window?.rootViewController as ViewController
   //  mainVC.dummy()
@@ -86,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         println("will terminate")
   }
+    
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         println("Got Notification about Live broadcast")

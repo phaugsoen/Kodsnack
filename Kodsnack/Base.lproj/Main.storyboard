@@ -181,6 +181,11 @@
                                 <state key="normal" image="closebutton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="Layer.CornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="exitPressed:" destination="efA-U5-on5" eventType="touchUpInside" id="qz7-Lh-s22"/>
                                 </connections>

@@ -70,7 +70,12 @@ class JSONData {
                 self.listen_url = source["listenurl"] as String
                 self.podcast = source["server_name"] as String
                 
-                  // Notify VC it can start to connect
+                // If App in BG, send notif to center for banner
+                 NSNotificationCenter.defaultCenter().postNotificationName("notifStartListen", object: self, userInfo: nil)
+                
+                // Notify VC it can start to connect
+                
+                
                   self.delegate?.startListen(pauseMusic: false)
                   return
             

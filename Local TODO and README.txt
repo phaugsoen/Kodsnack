@@ -1,10 +1,33 @@
+** Ändra pollningsintervall för JSON till t.ex 30s (Kolla android!)
+** Kör minnestest på iPad under 1h (minst). Samma på iPhone 6
+** Vad händer om man gör paus med minnet?
+
+Testplan T-2
+############
+* Testa notifieringar
+* Testa minnesförbrukningen (under väntan gått från minst 42 till drygt 60 Mb)
+* Hur länge kan man göra paus?
+    - Vad står det i spec?
+    - Vad händer?
+    - Äter den minne för lokal buffer?
+
+* Kör länge i Xcode/device för att se om den stannar och fel dyker upp. Hände en gång under T-1
+
+* Testa kontrollcenter mera
+
+* Inkommande samtal under Live, vad händer?
+
+* Vad händer vid "live slut"?
+    - Vad vill jag skall hända?
+    - Vad är alternativen?
+
+
 Förbättringsförslag efter Test-1
 ################################
 
 * Bilden studsar när Live startar
+
 * Tydligare notif om att nu har det börjat! Hur? Lämpligt!?
-
-
 
 * web ej ok på sexa device
 
@@ -44,10 +67,6 @@ Bugs efter T-1
 
 Testfall
 ########
-* Hur länge kan man göra paus? Vad står det i spec? Vad händer? Äter den minne för lokal buffer?
-* Kör länge i Xcode/device för att se om den stannar och fel dyker upp. Hände en gång under T-1
-* Testa kontrollcenter mera
-
 
 
 
@@ -62,6 +81,8 @@ Ideer och TODO
 * Kanske passar bättre med lite modernare och mer iOS typisk t utseende
 * Lämplig hissmusik? En lista kanske behövs som fall back
 * Går det att trigga via Twitter, we are now live?
+* Göra en IFTTT gränsyta där den kan respondera, om inte annat för att få kunskap om IFTT
+
 * Skriv en README för GitHUB
 
 * Med timer och ingen musik görs resign active när jag går till background och timer utlöses inte.

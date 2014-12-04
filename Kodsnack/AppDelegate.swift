@@ -20,14 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // register for local notifications (permission)
     let notPermSett = UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert, categories: nil)
-    
     application.registerUserNotificationSettings(notPermSett)
     
-    
-  //  let orange = UIColor.orangeColor()
-    
-    
-   // listFonts()
+    // listFonts()
     return true
   }
 
@@ -51,16 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // setup local notifications
     
-/*
-    
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
-    localNotification.alertBody = @"new Blog Posted at iOScreator.com";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-  */
-    
     println("did enter background")
  /*
+    
+    Should NOT be sent here for real, this is a test
+    
     let locNot = UILocalNotification()
     locNot.fireDate = NSDate(timeIntervalSinceNow: 10)
     locNot.alertBody = "The podcast is now Live"

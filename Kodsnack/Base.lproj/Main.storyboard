@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -85,13 +85,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bje-LG-Jy7" userLabel="Volume">
-                                <rect key="frame" x="-90" y="499" width="200" height="47"/>
-                                <color key="backgroundColor" red="0.54824330277215738" green="0.37940081882626808" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="I97-3R-aUl"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.86268144845962524" green="0.86278229951858521" blue="0.86263507604598999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -101,10 +94,8 @@
                             <constraint firstAttribute="centerX" secondItem="gHx-dN-a76" secondAttribute="centerX" id="Czf-WR-aGO"/>
                             <constraint firstItem="gHx-dN-a76" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HJT-9Q-9R6"/>
                             <constraint firstItem="gHx-dN-a76" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Qnx-aj-VXt"/>
-                            <constraint firstItem="gHx-dN-a76" firstAttribute="top" secondItem="Bje-LG-Jy7" secondAttribute="bottom" constant="10" id="URT-ez-heu"/>
                             <constraint firstItem="plB-Qs-zj6" firstAttribute="top" secondItem="Ohk-SO-awL" secondAttribute="bottom" constant="20" id="Y4V-v1-A0P"/>
                             <constraint firstAttribute="centerX" secondItem="dYO-rA-xbG" secondAttribute="centerX" id="akq-X4-YL2"/>
-                            <constraint firstItem="Bje-LG-Jy7" firstAttribute="top" secondItem="plB-Qs-zj6" secondAttribute="bottom" constant="-1" id="bhr-Ed-4vz"/>
                             <constraint firstAttribute="centerY" secondItem="Ohk-SO-awL" secondAttribute="centerY" id="dgO-WV-6sL"/>
                             <constraint firstAttribute="centerX" secondItem="Ohk-SO-awL" secondAttribute="centerX" id="eOm-vb-qNU"/>
                             <constraint firstItem="Ohk-SO-awL" firstAttribute="top" secondItem="plB-Qs-zj6" secondAttribute="bottom" constant="120" id="l5K-MO-p1d"/>
@@ -138,7 +129,6 @@
                         <outlet property="pauseButton" destination="Vv1-YR-26R" id="8wf-Ov-1S9"/>
                         <outlet property="playButton" destination="Lue-bo-VSa" id="xlO-Mb-CX1"/>
                         <outlet property="titleContainer" destination="dYO-rA-xbG" id="YGJ-PQ-Jqh"/>
-                        <outlet property="vol" destination="Bje-LG-Jy7" id="JgC-n6-y1M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

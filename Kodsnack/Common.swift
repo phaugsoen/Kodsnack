@@ -15,7 +15,7 @@ import UIKit
 var kChatURLPath = "http://kiwiirc.com/client/irc.freenode.net/"
 
 // How often (secs) the icecast server is checked
-let kCheckDelay = 600.0
+let kCheckDelay = 10.0
 
 
 let kKodsnackLabel = "Kodsnack Live"
@@ -63,7 +63,7 @@ enum Pods : Int {
 
 
 
-// Lista available fonts on device
+// List available fonts on device
 func listFonts() {
     let fams = UIFont.familyNames()
     for aFam in fams {

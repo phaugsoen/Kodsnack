@@ -21,11 +21,10 @@ class ViewController: UIViewController, StatusCheckDelegate {
     @IBOutlet weak var titleContainer : UIView!
     
     
-    // test
-    var globalCounter = 0
-    
     var player : AVPlayer
-    var jsonData : JSONData!
+    
+    // object handeling the comm with the stream server
+    var jsonData : JSONData
     
     // används denna?
     var selectedStreamID = "Appsnack"
@@ -46,35 +45,30 @@ class ViewController: UIViewController, StatusCheckDelegate {
     
     // if the player is logically paused. This is set sep from the .rate property
     var playerPaused : Bool = false
-   
-    @IBOutlet weak var vol : UIView!
     
+ 
     
     required init(coder aDecoder: NSCoder) {
         
         self.player = AVPlayer()
+        self.jsonData = JSONData()
+        
         super.init(coder:aDecoder)
     }
     
     
     
     deinit {
-      //  println("DEINIT, removing observer in VC")
-        //
-        //    player.removeObserver(self, forKeyPath: "status")
+     
     }
     
     
     
     
   override func viewDidLoad() {
+  
     super.viewDidLoad()
     
-    
-    let volView = MPVolumeView(frame: self.vol.frame)
-    vol.backgroundColor = UIColor.clearColor()
-    vol.addSubview(volView)
-   
     // Set the view bg to same as KodSnack pic bg grey #DCDCDC
     let kodSnackColor = UIColor(red:0.86,green: 0.86,blue: 0.86,alpha: 1)
     view.backgroundColor = kodSnackColor
@@ -99,19 +93,19 @@ class ViewController: UIViewController, StatusCheckDelegate {
     self.titleContainer.addSubview(appTitle)
     
     
-    
-    
-    
     // Listen for entering of bg state
     NSNotificationCenter.defaultCenter().addObserver( self,
         selector: "notifStartListen:",
         name:"notifStartListen",
         object: nil)
     
+    
+    jsonData.delegate = self
+    
     tryToConnect()
     
     
-    startAnimTimer()
+//    startAnimTimer()
   }
     
     
@@ -167,13 +161,6 @@ class ViewController: UIViewController, StatusCheckDelegate {
     }
     
     
-    // Right now we use the notOnline callback to do the animation. But if we want to
-    // animate in a diff way, a timer...
-    
-    func startAnimTimer() {
-           var timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector:"animateBoth", userInfo: nil, repeats: false)
-    }
-
     
     
     func animateBoth() {
@@ -226,30 +213,20 @@ class ViewController: UIViewController, StatusCheckDelegate {
   }
   
     
-    func notifyUserLocally() {
-        
-        let locNot = UILocalNotification()
-        locNot.fireDate = NSDate(timeIntervalSinceNow: 1)
-        locNot.alertBody = "The podcast is now Live"
-        locNot.soundName = UILocalNotificationDefaultSoundName
-        locNot.timeZone = NSTimeZone.defaultTimeZone()
-        UIApplication.sharedApplication().scheduleLocalNotification(locNot)
-    }
+    
     
   
   func tryToConnect() {
     
     println("\(NSDate().description) Trying to connect in VC")
     
-    jsonData = JSONData()
-    jsonData.delegate = self
+ //   jsonData = JSONData()
+  //  jsonData.delegate = self
     jsonData.getStatus(kStreamURL)
     
 //    jsonData.getStatus(streamDir[selectedStreamID]!)
   }
   
-
-    
     
     
     
@@ -264,13 +241,15 @@ class ViewController: UIViewController, StatusCheckDelegate {
         // When not online, play som light bg music :)
         startListen(pauseMusic: true)
         
-        
         // try to connect again in kCheckDelay seconds
         var timer = NSTimer.scheduledTimerWithTimeInterval(kCheckDelay, target: self, selector:"tryToConnect", userInfo: nil, repeats: false)
         
         
     }
   
+    
+    
+    
     // Main func for listening.
     func startListen( #pauseMusic: Bool) {
         println("-> StartListen")
@@ -305,9 +284,7 @@ class ViewController: UIViewController, StatusCheckDelegate {
            //     onlineStatusLbl.textColor = UIColor.greenColor()
                 onlineStatusLbl.text = "O N L I N E"
 
-                // Notify user if App in BG
-               //  notifyUserLocally()
-                
+               
                 
                 // show correct signs
                 if jsonData.podcast == "Kodsnack" {
@@ -389,7 +366,7 @@ class ViewController: UIViewController, StatusCheckDelegate {
                 player.allowsExternalPlayback = false
                 UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
                 player.play()
-                globalCounter++
+       
                 fadeIn()
                 
                 playButton.enabled = false

@@ -1,52 +1,29 @@
-** Ändra pollningsintervall för JSON till t.ex 30s (Kolla android!)
-** Kör minnestest på iPad under 1h (minst). Samma på iPhone 6
-** Vad händer om man gör paus med minnet?
+* Kör minnestest på iPad under 1h (minst), MACSRV pågår
+* Hur länge kan man göra paus? Testa både live och paus
+        - Vad står det i spec?
+        - Vad händer?
+        - Äter den minne för lokal buffer?
 
-Testplan T-2
-############
-* Testa notifieringar
-* Testa minnesförbrukningen (under väntan gått från minst 42 till drygt 60 Mb)
-* Hur länge kan man göra paus?
-    - Vad står det i spec?
-    - Vad händer?
-    - Äter den minne för lokal buffer?
+* Förbättra README för GitHUB
 
-* Kör länge i Xcode/device för att se om den stannar och fel dyker upp. Hände en gång under T-1
+* Kolla med Podkillar om det var live i tisdags? När är nästa? Kolla med Kodsnack?
 
-* Testa kontrollcenter mera
+* Ändra pollningsintervall för JSON till t.ex 10s
 
-* Inkommande samtal under Live, vad händer?
-
-* Vad händer vid "live slut"?
-    - Vad vill jag skall hända?
-    - Vad är alternativen?
-
-
-Förbättringsförslag efter Test-1
-################################
-
-* Bilden studsar när Live startar
-
-* Tydligare notif om att nu har det börjat! Hur? Lämpligt!?
+* Ta fram en testplan inför nästa livetillfälle
 
 * web ej ok på sexa device
 
 
-* Finputsa transitions
+Testplan
+########
+* Om pause i väntan på Live, startar den sen?
+* Testa notifieringar (bg, fg)
+* Inkommande samtal under Live, vad händer?
+* Vad händer vid "live slut"?
+    - Vad vill jag skall hända?
+    - Vad är alternativen?
 
-* Pausmusik för att vara Apple-OK, men möjl att pausa den. Sedan när live startar så går den igång!?!?!
-
-* Visa antalet lyssnare online som Android. Vid start enkelt, men om den skall hålla uppdaterat lite mer komplicerat.
-
-
-* Ta fram en testplan inför nästa livetillfälle
-
-* En muteknapp??
-
-* Gör play och paus till EN knapp som växlar ( Se först till att de funkar som avsedd i dagens läge)
-
-* Kanske ta bort VC med podval. Finns väl inget behov då kod o app samma. Kanske ett annat
-sätt att manuellt ange en JSON sträng/pod, för test?
 
 
 
@@ -63,45 +40,33 @@ Bugs efter T-1
 * OK! När live är slut så händer ingenting förutom att det blir tyst. Visar online. Om jag trycker reload
   el på bilden så går den in i det korrekta vänteläget med pausmusik
 
-
-
-Testfall
-########
-
-
-
-
 Ideer och TODO
 **************
 
+* En muteknapp??
+* Gör play och paus till EN knapp som växlar
+* Visa en equlizer som Overcast har
 
+
+Done eller förkastat
+####################
 * Exp mera med player.volume. Kanske finns mer saker att sätta. T.ex tona in ljudets
 
 * Måste tänka om och rätt enl Apple när det gäller background och pausmusik
 * Kanske passar bättre med lite modernare och mer iOS typisk t utseende
+
+* Går det att trigga via Twitter, we are now live? (bökigt)
+* Göra en IFTTT gränsyta där den kan respondera, om inte annat för att få kunskap om IFTT (Finns ännu inget IFTTT api publikt)
 * Lämplig hissmusik? En lista kanske behövs som fall back
-* Går det att trigga via Twitter, we are now live?
-* Göra en IFTTT gränsyta där den kan respondera, om inte annat för att få kunskap om IFTT
+* Visa antalet lyssnare online som Android. Vid start enkelt, men om den skall hålla uppdaterat lite mer komplicerat.
 
-* Skriv en README för GitHUB
-
-* Med timer och ingen musik görs resign active när jag går till background och timer utlöses inte.
-Kanske löses med att spela någon annan musik så länge?
-
-
-
-* Det SKALL fungera att köra i bakgrunden. Bör dock prova lite saker så som inkommande samtal, notifieringar, byte av nät etc.
+* Slänga iväg bilden som i twitter (inte värt jobbet)
+* Gör en snygg parse av JSON till Swift (För liten struktur för att lägga kraft på detta)
+* Kanske ta bort VC med podval. Finns väl inget behov då kod o app samma. Kanske ett annat
+sätt att manuellt ange en JSON sträng/pod, för test?
 
 
 
-* Gör en snygg parse av JSON till Swift
-* Visa en equlizer som Overcast har
-* Slänga iväg bilden som i twitter
-
-
-
-Done
-####
 * Ändra on och offline röd grön till något bättre. Grön färg syns dålig, passar dåligt och är fult.
 
 * Alert ser den ok ut? Blå rubrik? Bra text?
